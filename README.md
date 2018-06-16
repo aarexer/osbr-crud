@@ -31,7 +31,7 @@ It is worth noting:
 
 And it's many-to-many link for all items.
 
-The library dependency graph is:
+##### Library links
 ![Library](./info/library.png)
 
 #### Site backend
@@ -47,13 +47,11 @@ The post may have several comments from users, may have tags.
 User is simple entity for store metadata about user - password, email and etc.
 UserProfile is entity for store more information about User. 
 
-The user and user_profile dependency graph is:
+##### User and UserProfile links
 ![Library](./info/users_to_user_profile.png)
 
 
-
-And post, tag and comment:
-
+##### Post, Comment and Tag links
 
 ![Library](./info/post_to_tag_to_comment.png)
 
