@@ -19,6 +19,12 @@
             <column name="gender" type="VARCHAR(10)"/>
             <column name="date_of_birth" type="DATE"/>
         </createTable>
+
+        <addForeignKeyConstraint baseColumnNames="id"
+                                 baseTableName="user_profile"
+                                 constraintName="fk_user_to_user_profile"
+                                 referencedColumnNames="id"
+                                 referencedTableName="users"/>
     </changeSet>
 
 </databaseChangeLog>
