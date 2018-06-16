@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="create book-to-genre table" author="aarexer">
+        <createTable tableName="book_genres_junction">
+            <column name="book_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="genre_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="create book-to-author table" author="aarexer">
+        <createTable tableName="book_author_junction">
+            <column name="book_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="author_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="create author-to-genre table" author="aarexer">
+        <createTable tableName="author_genre_junction">
+            <column name="genre_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="author_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="junctions for book and genres" author="aarexer">
+        <addForeignKeyConstraint baseColumnNames="book_id"
+                                 baseTableName="book_genres_junction"
+                                 constraintName="fk_book_to_genre_junction"
+                                 onDelete="CASCADE"
+                                 onUpdate="RESTRICT"
+                                 referencedColumnNames="id"
+                                 referencedTableName="book"/>
+
+        <addForeignKeyConstraint baseColumnNames="genre_id"
+                                 baseTableName="book_genres_junction"
+                                 constraintName="fk_genre_to_book_junction"
+                                 onDelete="CASCADE"
+                                 onUpdate="RESTRICT"
+                                 referencedColumnNames="id"
+                                 referencedTableName="genre"/>
+    </changeSet>
+
+    <changeSet id="junctions for book and author" author="aarexer">
+        <addForeignKeyConstraint baseColumnNames="book_id"
+                                 baseTableName="book_author_junction"
+                                 constraintName="fk_book_to_author_junction"
+                                 onDelete="CASCADE"
+                                 onUpdate="RESTRICT"
+                                 referencedColumnNames="id"
+                                 referencedTableName="book"/>
+
+        <addForeignKeyConstraint baseColumnNames="author_id"
+                                 baseTableName="book_author_junction"
+                                 constraintName="fk_author_to_book_junction"
+                                 onDelete="CASCADE"
+                                 onUpdate="RESTRICT"
+                                 referencedColumnNames="id"
+                                 referencedTableName="author"/>
+    </changeSet>
+
+    <changeSet id="junctions for genre and author" author="aarexer">
+        <addForeignKeyConstraint baseColumnNames="genre_id"
+                                 baseTableName="author_genre_junction"
+                                 constraintName="fk_genre_to_author_junction"
+                                 onDelete="CASCADE"
+                                 onUpdate="RESTRICT"
+                                 referencedColumnNames="id"
+                                 referencedTableName="genre"/>
+
+        <addForeignKeyConstraint baseColumnNames="author_id"
+                                 baseTableName="author_genre_junction"
+                                 constraintName="fk_author_to_genre_junction"
+                                 onDelete="CASCADE"
+                                 onUpdate="RESTRICT"
+                                 referencedColumnNames="id"
+                                 referencedTableName="author"/>
+    </changeSet>
+
+</databaseChangeLog>

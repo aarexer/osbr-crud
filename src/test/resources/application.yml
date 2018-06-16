@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    url: jdbc:hsqldb:mem:db;DB_CLOSE_DELAY=-1
+    username: sa
+    password: sa
+    driver-class-name: org.h2.Driver
+    liquibase:
+      change-log: classpath:/db/default/scripts.xml
+      drop-first: true
+  jpa:
+    hibernate:
+      ddl-auto: none

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <!--  VERSION 1.0.0  -->
+    <include file="1.0.0/schema/book_table.xml" relativeToChangelogFile="true"/>
+    <include file="1.0.0/schema/author_table.xml" relativeToChangelogFile="true"/>
+    <include file="1.0.0/schema/genre_table.xml" relativeToChangelogFile="true"/>
+    <include file="1.0.0/schema/book_genre_author_junctions.xml" relativeToChangelogFile="true"/>
+    <!-- Site -->
+    <include file="1.0.0/schema/post_table.xml" relativeToChangelogFile="true"/>
+    <include file="1.0.0/schema/comment_table.xml" relativeToChangelogFile="true"/>
+    <include file="1.0.0/schema/tags.xml" relativeToChangelogFile="true"/>
+    <include file="1.0.0/schema/post_to_tags.xml" relativeToChangelogFile="true"/>
+    <!--Users and profiles-->
+    <include file="1.0.0/schema/user.xml" relativeToChangelogFile="true"/>
+    <include file="1.0.0/schema/user_profile.xml" relativeToChangelogFile="true"/>
+    <!-- Data files  -->
+
+
+</databaseChangeLog>

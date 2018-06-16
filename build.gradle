@@ -2,6 +2,7 @@ group 'aarexer.osbr-crud'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
+// apply plugin: 'org.springframework.boot'
 
 sourceCompatibility = 1.8
 
@@ -10,5 +11,23 @@ repositories {
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile "org.springframework.boot:spring-boot-starter-data-jpa:$spring_boot_version"
+    compile "org.springframework.boot:spring-boot-starter-web:$spring_boot_version"
+    compile "mysql:mysql-connector-java:$mysql_connector_version"
+
+    compile "org.liquibase:liquibase-core:$liquibase_version"
+
+    compile "org.slf4j:jcl-over-slf4j:$slf4_version"
+    compile "ch.qos.logback:logback-classic:$logback_version"
+    compile "com.google.guava:guava:$guava_version"
+
+    compileOnly "org.projectlombok:lombok:$lombok_version"
+
+    testCompile "com.h2database:h2:$h2database_version"
+    testCompile "org.springframework.boot:spring-boot-starter-test:$spring_boot_version"
+    testCompile "junit:junit:$junit_version"
+}
+
+configurations.all {
+    exclude group: "commons-logging", module: "commons-logging"
 }
