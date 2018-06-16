@@ -51,7 +51,10 @@ The user and user_profile dependency graph is:
 ![Library](./info/users_to_user_profile.png)
 
 
+
 And post, tag and comment:
+
+
 ![Library](./info/post_to_tag_to_comment.png)
 
 ### Inside:
