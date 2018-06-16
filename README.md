@@ -9,6 +9,16 @@ It's a simple implementation for common task in `Java` world - create `RESTful C
 * For decrease boilerplate code we will use [lombok](https://projectlombok.org/).
 * For decrease template code we will use [Google guava](https://github.com/google/guava)
 
+### Stack inside:
+* MySQL as a database.
+* Liquibase.
+* Hibernate as JPA implementation.
+* Spring Boot.
+* Java 8.
+* Gradle.
+* JUnit4.
+* Lombok.
+
 
 And let's describe our model.
 ### Model
@@ -54,13 +64,3 @@ UserProfile is entity for store more information about User.
 ##### Post, Comment and Tag links
 
 ![Library](./info/post_to_tag_to_comment.png)
-
-### Inside:
-* MySQL as a database.
-* Liquibase.
-* Hibernate as JPA implementation.
-* Spring Boot.
-* Java 8.
-* Gradle.
-* JUnit4.
-* Lombok.
