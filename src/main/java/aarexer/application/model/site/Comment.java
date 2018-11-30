@@ -1,6 +1,7 @@
 package aarexer.application.model.site;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
@@ -11,8 +12,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 
-@Getter
-@Setter
+@Data
 @Entity
 @Table(name = "comments")
 public class Comment extends AuditModel {

@@ -1,4 +1,4 @@
-package aarexer.application.controller;
+package aarexer.application.web.controller.library;
 
 import aarexer.application.model.library.Book;
 import aarexer.application.repository.library.BookRepository;

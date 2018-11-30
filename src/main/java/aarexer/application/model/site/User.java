@@ -1,9 +1,11 @@
 package aarexer.application.model.site;
 
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.OnDelete;
 import org.hibernate.validator.constraints.Email;
 
 import javax.persistence.*;
@@ -11,8 +13,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 
-@Getter
-@Setter
+@Data
 @Entity
 @Table(name = "users")
 public class User implements Serializable {
@@ -31,7 +32,6 @@ public class User implements Serializable {
     private String lastName;
 
     @NotNull
-    @Email
     @Size(max = 255)
     @Column(unique = true)
     private String email;
@@ -40,10 +40,9 @@ public class User implements Serializable {
     @Size(max = 255)
     private String password;
 
-    @OneToOne(fetch = FetchType.LAZY,
-            cascade = CascadeType.ALL,
-            mappedBy = "user")
-    private UserProfile userProfile;
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "id", referencedColumnName = "user_id", nullable = false)
+    private UserProfileInfo userProfileInfo;
 
     // Hibernate requires a no-arg constructor
     public User() {

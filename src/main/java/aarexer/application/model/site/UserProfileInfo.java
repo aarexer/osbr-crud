@@ -1,5 +1,6 @@
 package aarexer.application.model.site;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
@@ -9,11 +10,10 @@ import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.time.LocalDate;
 
-@Getter
-@Setter
+@Data
 @Entity
-@Table(name = "user_profile")
-public class UserProfile implements Serializable {
+@Table(name = "user_profile_info")
+public class UserProfileInfo implements Serializable {
     @Id
     @GenericGenerator(name = "native", strategy = "native")
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
@@ -39,14 +39,10 @@ public class UserProfile implements Serializable {
     @Size(max = 255)
     private String country;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
-
-    public UserProfile() {
+    public UserProfileInfo() {
     }
 
-    public UserProfile(String phoneNumber, Gender gender, LocalDate dateOfBirth, String city, String state, String country) {
+    public UserProfileInfo(String phoneNumber, Gender gender, LocalDate dateOfBirth, String city, String state, String country) {
         this.phoneNumber = phoneNumber;
         this.gender = gender;
         this.dateOfBirth = dateOfBirth;

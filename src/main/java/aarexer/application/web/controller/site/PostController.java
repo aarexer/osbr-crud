@@ -1,7 +1,7 @@
-package aarexer.application.controller.site;
+package aarexer.application.web.controller.site;
 
 
-import aarexer.application.exception.ResourceNotFoundException;
+import aarexer.application.ResourceNotFoundException;
 import aarexer.application.model.site.Post;
 import aarexer.application.repository.site.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;

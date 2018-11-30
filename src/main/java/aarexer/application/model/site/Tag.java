@@ -1,5 +1,6 @@
 package aarexer.application.model.site;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
@@ -12,8 +13,7 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
-@Getter
-@Setter
+@Data
 @Entity
 @Table(name = "tags")
 public class Tag implements Serializable {
@@ -33,9 +33,5 @@ public class Tag implements Serializable {
     private Set<Post> posts = new HashSet<>();
 
     public Tag() {
-    }
-
-    public Tag(String name) {
-        this.name = name;
     }
 }

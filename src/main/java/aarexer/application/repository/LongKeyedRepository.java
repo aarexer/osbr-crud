@@ -6,5 +6,4 @@ import java.io.Serializable;
 
 @NoRepositoryBean
 public interface LongKeyedRepository<E extends Serializable> extends KeyedRepository<E, Long> {
-    boolean existsById(Long id);
 }

@@ -1,4 +1,4 @@
-package aarexer.application.controller;
+package aarexer.application.web.controller.library;
 
 import aarexer.application.model.library.Genre;
 import aarexer.application.repository.library.GenreRepository;

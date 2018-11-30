@@ -16,7 +16,6 @@
     <include file="1.0.0/schema/post_to_tags.xml" relativeToChangelogFile="true"/>
     <!--Users and profiles-->
     <include file="1.0.0/schema/user.xml" relativeToChangelogFile="true"/>
-    <include file="1.0.0/schema/user_profile.xml" relativeToChangelogFile="true"/>
     <!-- Data files  -->
 
 

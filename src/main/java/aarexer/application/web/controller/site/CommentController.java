@@ -1,6 +1,6 @@
-package aarexer.application.controller.site;
+package aarexer.application.web.controller.site;
 
-import aarexer.application.exception.ResourceNotFoundException;
+import aarexer.application.ResourceNotFoundException;
 import aarexer.application.model.site.Comment;
 import aarexer.application.repository.site.CommentRepository;
 import aarexer.application.repository.site.PostRepository;

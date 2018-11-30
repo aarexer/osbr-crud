@@ -1,5 +1,6 @@
 package aarexer.application.model.site;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
@@ -11,8 +12,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 
-@Getter
-@Setter
+@Data
 @Entity
 @Table(name = "posts")
 public class Post extends AuditModel {
@@ -35,21 +35,12 @@ public class Post extends AuditModel {
     private String content;
 
     @ManyToMany(fetch = FetchType.LAZY,
-            cascade = {
-                    CascadeType.PERSIST,
-                    CascadeType.MERGE
-            })
+            cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(name = "post_tags",
-            joinColumns = { @JoinColumn(name = "post_id", referencedColumnName = "id") },
-            inverseJoinColumns = { @JoinColumn(name = "tag_id", referencedColumnName = "id") })
+            joinColumns = {@JoinColumn(name = "post_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "tag_id", referencedColumnName = "id")})
     private Set<Tag> tags = new HashSet<>();
 
     public Post() {
-    }
-
-    public Post(String title, String description, String content) {
-        this.title = title;
-        this.description = description;
-        this.content = content;
     }
 }

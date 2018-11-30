@@ -4,6 +4,22 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
+    <changeSet id="create user_profile_info table" author="aarexer">
+        <createTable tableName="user_profile_info">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="user_id" type="BIGINT"/>
+            <column name="phone_number" type="VARCHAR(15)"/>
+            <column name="country" type="VARCHAR(255)"/>
+            <column name="city" type="VARCHAR(255)"/>
+            <column name="state" type="VARCHAR(255)"/>
+            <column name="gender" type="VARCHAR(10)"/>
+            <column name="date_of_birth" type="DATE"/>
+        </createTable>
+    </changeSet>
+
+
     <changeSet id="create users table" author="aarexer">
         <createTable tableName="users">
             <column name="id" type="BIGINT" autoIncrement="true">
@@ -22,6 +38,13 @@
                 <constraints nullable="false"/>
             </column>
         </createTable>
+
+        <!--todo understand wtf is going on after uncomment-->
+        <!--<addForeignKeyConstraint baseColumnNames="id"-->
+        <!--baseTableName="users"-->
+        <!--constraintName="fk_user_to_user_profile"-->
+        <!--referencedColumnNames="user_id"-->
+        <!--referencedTableName="user_profile_info"/>-->
     </changeSet>
 
 </databaseChangeLog>
