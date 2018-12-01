@@ -1,6 +1,7 @@
 package aarexer.application.model.site;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
@@ -16,6 +17,7 @@ import java.util.Set;
 @Data
 @Entity
 @Table(name = "tags")
+@EqualsAndHashCode(exclude = {"posts"})
 public class Tag implements Serializable {
     @Id
     @GenericGenerator(name = "native", strategy = "native")
@@ -27,11 +29,13 @@ public class Tag implements Serializable {
     @NaturalId
     private String name;
 
-    @ManyToMany(fetch = FetchType.LAZY,
-            cascade = {CascadeType.PERSIST, CascadeType.MERGE},
-            mappedBy = "tags")
+    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE}, mappedBy = "tags")
     private Set<Post> posts = new HashSet<>();
 
     public Tag() {
+    }
+
+    public Tag(String name) {
+        this.name = name;
     }
 }

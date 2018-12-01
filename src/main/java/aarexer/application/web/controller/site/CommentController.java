@@ -9,6 +9,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import javax.validation.Valid;
 
@@ -27,14 +28,15 @@ public class CommentController {
     @GetMapping("/posts/{postId}/comments")
     public Page<Comment> getAllCommentsByPostId(@PathVariable(value = "postId") Long postId,
                                                 Pageable pageable) {
-        return commentRepository.findByPostId(postId, pageable);
+        // todo
+//        return commentRepository.findByPostId(postId, pageable);
+        throw new NotImplementedException();
     }
 
     @PostMapping("/posts/{postId}/comments")
     public Comment createComment(@PathVariable(value = "postId") Long postId,
                                  @Valid @RequestBody Comment comment) {
         return postRepository.getById(postId).map(post -> {
-            comment.setPost(post);
             return commentRepository.save(comment);
         }).orElseThrow(() -> new ResourceNotFoundException(String.format("PostId %d not found", postId)));
     }

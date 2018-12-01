@@ -5,8 +5,9 @@ import aarexer.application.repository.LongKeyedRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 @Repository
+@Transactional
 public interface CommentRepository extends LongKeyedRepository<Comment> {
-    Page<Comment> findByPostId(Long postId, Pageable pageable);
 }

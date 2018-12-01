@@ -41,7 +41,7 @@ public class User implements Serializable {
     private String password;
 
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "id", referencedColumnName = "user_id", nullable = false)
+    @JoinColumn(name = "id", referencedColumnName = "user_id")
     private UserProfileInfo userProfileInfo;
 
     // Hibernate requires a no-arg constructor

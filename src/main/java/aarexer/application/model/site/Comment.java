@@ -25,12 +25,10 @@ public class Comment extends AuditModel {
     @NotNull
     private String content;
 
-    @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "post_id", nullable = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    private Post post;
-
     public Comment() {
+    }
+
+    public Comment(String content) {
+        this.content = content;
     }
 }

@@ -10,10 +10,7 @@
     <include file="1.0.0/schema/genre_table.xml" relativeToChangelogFile="true"/>
     <include file="1.0.0/schema/book_genre_author_junctions.xml" relativeToChangelogFile="true"/>
     <!-- Site -->
-    <include file="1.0.0/schema/post_table.xml" relativeToChangelogFile="true"/>
-    <include file="1.0.0/schema/comment_table.xml" relativeToChangelogFile="true"/>
-    <include file="1.0.0/schema/tags.xml" relativeToChangelogFile="true"/>
-    <include file="1.0.0/schema/post_to_tags.xml" relativeToChangelogFile="true"/>
+    <include file="1.0.0/schema/post_tags_comment_tables.xml" relativeToChangelogFile="true"/>
     <!--Users and profiles-->
     <include file="1.0.0/schema/user.xml" relativeToChangelogFile="true"/>
     <!-- Data files  -->
