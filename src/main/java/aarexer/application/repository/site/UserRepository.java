@@ -10,5 +10,5 @@ import java.util.List;
 @Repository
 @Transactional
 public interface UserRepository extends LongKeyedRepository<User> {
-    public List<User> findUsersByFirstName(String firstName);
+    List<User> findUsersByFirstName(String firstName);
 }
