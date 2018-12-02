@@ -3,6 +3,7 @@ package aarexer.application.model.site;
 
 import lombok.Data;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.OnDelete;
@@ -15,6 +16,7 @@ import java.io.Serializable;
 
 @Data
 @Entity
+@NoArgsConstructor
 @Table(name = "users")
 public class User implements Serializable {
     @Id
@@ -43,11 +45,6 @@ public class User implements Serializable {
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "id", referencedColumnName = "user_id")
     private UserProfileInfo userProfileInfo;
-
-    // Hibernate requires a no-arg constructor
-    public User() {
-
-    }
 
     public User(String firstName, String lastName, String email, String password) {
         this.firstName = firstName;

@@ -1,12 +1,8 @@
 package aarexer.application.model.site;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -14,6 +10,7 @@ import javax.validation.constraints.NotNull;
 
 @Data
 @Entity
+@NoArgsConstructor
 @Table(name = "comments")
 public class Comment extends AuditModel {
     @Id
@@ -24,9 +21,6 @@ public class Comment extends AuditModel {
     @Lob
     @NotNull
     private String content;
-
-    public Comment() {
-    }
 
     public Comment(String content) {
         this.content = content;

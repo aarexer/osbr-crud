@@ -1,9 +1,6 @@
 package aarexer.application.model.site;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -15,6 +12,7 @@ import java.util.Set;
 
 @Data
 @Entity
+@NoArgsConstructor
 @Table(name = "posts")
 @EqualsAndHashCode(exclude = {"tags", "comments"}, callSuper = false)
 public class Post extends AuditModel {
@@ -45,9 +43,6 @@ public class Post extends AuditModel {
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "post_id", referencedColumnName = "id")
     private Set<Comment> comments = new HashSet<>();
-
-    public Post() {
-    }
 
     public Post(String title, String description, String content) {
         this.title = title;

@@ -2,6 +2,7 @@ package aarexer.application.model.site;
 
 import lombok.Data;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -12,6 +13,7 @@ import java.time.LocalDate;
 
 @Data
 @Entity
+@NoArgsConstructor
 @Table(name = "user_profile_info")
 public class UserProfileInfo implements Serializable {
     @Id
@@ -38,9 +40,6 @@ public class UserProfileInfo implements Serializable {
 
     @Size(max = 255)
     private String country;
-
-    public UserProfileInfo() {
-    }
 
     public UserProfileInfo(String phoneNumber, Gender gender, LocalDate dateOfBirth, String city, String state, String country) {
         this.phoneNumber = phoneNumber;
