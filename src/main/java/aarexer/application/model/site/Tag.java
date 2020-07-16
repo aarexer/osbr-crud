@@ -1,6 +1,8 @@
 package aarexer.application.model.site;
 
-import lombok.*;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.NaturalId;
 
@@ -15,7 +17,7 @@ import java.util.Set;
 @Entity
 @NoArgsConstructor
 @Table(name = "tags")
-@EqualsAndHashCode(exclude = {"posts"})
+@EqualsAndHashCode(exclude = {"id", "posts"})
 public class Tag implements Serializable {
     @Id
     @GenericGenerator(name = "native", strategy = "native")

@@ -1,9 +1,8 @@
 package aarexer.application.model.site;
 
 import lombok.Data;
-import lombok.Getter;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -14,6 +13,7 @@ import java.time.LocalDate;
 @Data
 @Entity
 @NoArgsConstructor
+@EqualsAndHashCode(exclude = "id")
 @Table(name = "user_profile_info")
 public class UserProfileInfo implements Serializable {
     @Id

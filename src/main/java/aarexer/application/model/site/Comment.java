@@ -1,16 +1,17 @@
 package aarexer.application.model.site;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
-
 @Data
 @Entity
 @NoArgsConstructor
+@EqualsAndHashCode(callSuper = false, exclude = "id")
 @Table(name = "comments")
 public class Comment extends AuditModel {
     @Id
@@ -26,3 +27,4 @@ public class Comment extends AuditModel {
         this.content = content;
     }
 }
+

@@ -1,10 +1,7 @@
 package aarexer.application.model.site;
 
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.validator.constraints.Email;
@@ -17,6 +14,7 @@ import java.io.Serializable;
 @Data
 @Entity
 @NoArgsConstructor
+@EqualsAndHashCode(exclude = "id")
 @Table(name = "users")
 public class User implements Serializable {
     @Id
@@ -42,7 +40,7 @@ public class User implements Serializable {
     @Size(max = 255)
     private String password;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "id", referencedColumnName = "user_id")
     private UserProfileInfo userProfileInfo;
 

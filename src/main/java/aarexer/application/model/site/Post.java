@@ -1,6 +1,8 @@
 package aarexer.application.model.site;
 
-import lombok.*;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -14,7 +16,7 @@ import java.util.Set;
 @Entity
 @NoArgsConstructor
 @Table(name = "posts")
-@EqualsAndHashCode(exclude = {"tags", "comments"}, callSuper = false)
+@EqualsAndHashCode(exclude = {"id", "tags", "comments"}, callSuper = false)
 public class Post extends AuditModel {
     @Id
     @GenericGenerator(name = "native", strategy = "native")
